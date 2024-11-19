@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Api", "TechChallenge.Api.csproj", "{8938E907-40D5-4182-BAF5-0F5439DD1329}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8938E907-40D5-4182-BAF5-0F5439DD1329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8938E907-40D5-4182-BAF5-0F5439DD1329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8938E907-40D5-4182-BAF5-0F5439DD1329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8938E907-40D5-4182-BAF5-0F5439DD1329}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86F5AE6F-4277-43B5-89FA-3EA1403F6A0F}
+	EndGlobalSection
+EndGlobal

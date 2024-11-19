@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0847A105-85CB-4DBF-9963-1205E06DE214}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Api", "src\TechChallenge.Api\TechChallenge.Api.csproj", "{4FACF562-7B40-48F9-845A-25945D9F6C4E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Infrastructure", "src\TechChallenge.Infrastructure\TechChallenge.Infrastructure.csproj", "{0096C739-D96B-4C5F-ACF9-AF987749EBAF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Application", "src\TechChallenge.Application\TechChallenge.Application.csproj", "{59A28BE0-687E-4AD3-81A9-97380F591864}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Domain", "src\TechChallenge.Domain\TechChallenge.Domain.csproj", "{57584CC2-8423-4D6C-ADE9-696FC50E9798}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Tests", "src\TechChallenge.Tests\TechChallenge.Tests.csproj", "{7829CA3A-35FC-4309-9F3B-9E74A2816500}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallange.IntegrationTests", "src\TechChallange.IntegrationTests\TechChallange.IntegrationTests.csproj", "{20831965-AE40-4F91-84AA-A3CE68B1207B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FACF562-7B40-48F9-845A-25945D9F6C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FACF562-7B40-48F9-845A-25945D9F6C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FACF562-7B40-48F9-845A-25945D9F6C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FACF562-7B40-48F9-845A-25945D9F6C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0096C739-D96B-4C5F-ACF9-AF987749EBAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0096C739-D96B-4C5F-ACF9-AF987749EBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0096C739-D96B-4C5F-ACF9-AF987749EBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0096C739-D96B-4C5F-ACF9-AF987749EBAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59A28BE0-687E-4AD3-81A9-97380F591864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A28BE0-687E-4AD3-81A9-97380F591864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A28BE0-687E-4AD3-81A9-97380F591864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A28BE0-687E-4AD3-81A9-97380F591864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57584CC2-8423-4D6C-ADE9-696FC50E9798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57584CC2-8423-4D6C-ADE9-696FC50E9798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57584CC2-8423-4D6C-ADE9-696FC50E9798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57584CC2-8423-4D6C-ADE9-696FC50E9798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7829CA3A-35FC-4309-9F3B-9E74A2816500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7829CA3A-35FC-4309-9F3B-9E74A2816500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7829CA3A-35FC-4309-9F3B-9E74A2816500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7829CA3A-35FC-4309-9F3B-9E74A2816500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20831965-AE40-4F91-84AA-A3CE68B1207B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20831965-AE40-4F91-84AA-A3CE68B1207B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20831965-AE40-4F91-84AA-A3CE68B1207B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20831965-AE40-4F91-84AA-A3CE68B1207B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4FACF562-7B40-48F9-845A-25945D9F6C4E} = {0847A105-85CB-4DBF-9963-1205E06DE214}
+		{0096C739-D96B-4C5F-ACF9-AF987749EBAF} = {0847A105-85CB-4DBF-9963-1205E06DE214}
+		{59A28BE0-687E-4AD3-81A9-97380F591864} = {0847A105-85CB-4DBF-9963-1205E06DE214}
+		{57584CC2-8423-4D6C-ADE9-696FC50E9798} = {0847A105-85CB-4DBF-9963-1205E06DE214}
+		{7829CA3A-35FC-4309-9F3B-9E74A2816500} = {0847A105-85CB-4DBF-9963-1205E06DE214}
+		{20831965-AE40-4F91-84AA-A3CE68B1207B} = {0847A105-85CB-4DBF-9963-1205E06DE214}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26D80454-AAFE-4821-8358-445EA32E4D92}
+	EndGlobalSection
+EndGlobal

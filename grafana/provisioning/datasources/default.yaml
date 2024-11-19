@@ -1,0 +1,14 @@
+apiVersion: 2
+deleteDatasources:
+  - name: Prometheus
+    orgId: 1
+
+prune: true
+
+datasources:
+- name: Prometheus
+  type: prometheus
+  uid: ${DS_PROMETHEUS}
+  url: http://host.docker.internal:9090
+  orgId: 1
+  editable: false
