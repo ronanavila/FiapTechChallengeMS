@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\TechChallenge.Domain\TechChallenge.Domain.csproj" />
+    <ProjectReference Include="..\..\TechChallenge.Domain\TechChallenge.Domain.csproj" />
   </ItemGroup>
 
 </Project>

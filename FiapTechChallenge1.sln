@@ -13,13 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Tests", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallange.IntegrationTests", "src\TechChallange.IntegrationTests\TechChallange.IntegrationTests.csproj", "{20831965-AE40-4F91-84AA-A3CE68B1207B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactCreation", "src\ContactCreation", "{02F4495F-6B6D-4F18-92BE-8B24B3FCE0C9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactCreation", "ContactCreation", "{02F4495F-6B6D-4F18-92BE-8B24B3FCE0C9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactUpdate", "src\ContactUpdate", "{C67EBC4C-0711-4E23-95AB-E191BAD73185}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactUpdate", "ContactUpdate", "{C67EBC4C-0711-4E23-95AB-E191BAD73185}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactDelete", "src\ContactDelete", "{2E17E053-C3FE-41DA-807B-8296A5495950}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactDelete", "ContactDelete", "{2E17E053-C3FE-41DA-807B-8296A5495950}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactSearch", "src\ContactSearch", "{00853978-BE2E-4902-97AD-C1455766CB93}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactSearch", "ContactSearch", "{00853978-BE2E-4902-97AD-C1455766CB93}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactCreation.Controller", "src\ContactCreation\TechChallenge.ContactCreation.Controller\TechChallenge.ContactCreation.Controller.csproj", "{80386F1D-D2DD-4618-BB09-8EFB835D75A4}"
 EndProject
@@ -29,7 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactDelete
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactDelete.Application", "src\ContactDelete\TechChallenge.ContactDelete.Application\TechChallenge.ContactDelete.Application.csproj", "{1D194656-8EE8-42A6-816D-C952D13A0F40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactSearch.Controller", "src\ContactSearchTechChallenge.ContactSearch.Controller\TechChallenge.ContactSearch.Controller.csproj", "{061E103C-796E-4C3C-8659-542863023E21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactSearch.Controller", "src\ContactSearch\TechChallenge.ContactSearch.Controller\TechChallenge.ContactSearch.Controller.csproj", "{061E103C-796E-4C3C-8659-542863023E21}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactSearch.Application", "src\ContactSearch\TechChallenge.ContactSearch.Application\TechChallenge.ContactSearch.Application.csproj", "{0AC8CDBC-AD80-47EC-977D-E9FCCD6792C1}"
 EndProject
@@ -101,10 +101,10 @@ Global
 		{7829CA3A-35FC-4309-9F3B-9E74A2816500} = {0847A105-85CB-4DBF-9963-1205E06DE214}
 		{20831965-AE40-4F91-84AA-A3CE68B1207B} = {0847A105-85CB-4DBF-9963-1205E06DE214}
 		{02F4495F-6B6D-4F18-92BE-8B24B3FCE0C9} = {0847A105-85CB-4DBF-9963-1205E06DE214}
-		{80386F1D-D2DD-4618-BB09-8EFB835D75A4} = {02F4495F-6B6D-4F18-92BE-8B24B3FCE0C9}
 		{C67EBC4C-0711-4E23-95AB-E191BAD73185} = {0847A105-85CB-4DBF-9963-1205E06DE214}
 		{2E17E053-C3FE-41DA-807B-8296A5495950} = {0847A105-85CB-4DBF-9963-1205E06DE214}
 		{00853978-BE2E-4902-97AD-C1455766CB93} = {0847A105-85CB-4DBF-9963-1205E06DE214}
+		{80386F1D-D2DD-4618-BB09-8EFB835D75A4} = {02F4495F-6B6D-4F18-92BE-8B24B3FCE0C9}
 		{903F6FB2-29FC-497D-B0B2-0C1A9311CDAB} = {02F4495F-6B6D-4F18-92BE-8B24B3FCE0C9}
 		{0A43534E-2748-4ABE-A320-110BAA3656BA} = {2E17E053-C3FE-41DA-807B-8296A5495950}
 		{1D194656-8EE8-42A6-816D-C952D13A0F40} = {2E17E053-C3FE-41DA-807B-8296A5495950}
