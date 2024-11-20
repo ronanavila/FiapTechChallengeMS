@@ -1,6 +1,0 @@
-@TechChallenge.ContactUpdate.Controller_HostAddress = http://localhost:5133
-
-GET {{TechChallenge.ContactUpdate.Controller_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

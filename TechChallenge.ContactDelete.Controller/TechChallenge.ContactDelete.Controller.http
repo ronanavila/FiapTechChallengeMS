@@ -1,6 +1,0 @@
-@TechChallenge.ContactDelete.Controller_HostAddress = http://localhost:5255
-
-GET {{TechChallenge.ContactDelete.Controller_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
