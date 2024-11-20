@@ -1,0 +1,6 @@
+@TechChallenge.ContactCreation.Controller_HostAddress = http://localhost:5022
+
+GET {{TechChallenge.ContactCreation.Controller_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
