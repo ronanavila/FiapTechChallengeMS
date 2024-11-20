@@ -1,11 +1,10 @@
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 using System.Reflection;
 using TechChallenge.ContactCreation.Application.Services;
-using TechChallenge.Domain.Repository;
-using TechChallenge.Infrastructure.Repository;
 using TechChallenge.Infrastructure.Repository.ApplicationDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -44,7 +43,6 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 }, ServiceLifetime.Scoped);
 
 builder.Services.AddTransient<IContactService, ContactService>();
-builder.Services.AddTransient<IContactRepository, ContactRepository>();
 
 builder.Services.AddOpenTelemetry()
   .WithMetrics(x =>
@@ -63,6 +61,27 @@ builder.Services.AddOpenTelemetry()
       .AddHttpClientInstrumentation();
   }
 );
+
+var configuration = builder.Configuration;
+var queueName = configuration.GetSection("MassTransit")["QueueName"] ?? string.Empty;
+var server = configuration.GetSection("MassTransit")["Server"] ?? string.Empty;
+var user = configuration.GetSection("MassTransit")["User"] ?? string.Empty;
+var password = configuration.GetSection("MassTransit")["Password"] ?? string.Empty;
+
+
+builder.Services.AddMassTransit(x =>
+{
+  x.UsingRabbitMq((context, cfg) =>
+  {
+    cfg.Host(server, "/", h =>
+    {
+      h.Username(user);
+      h.Password(password);
+    });
+
+    cfg.ConfigureEndpoints(context);
+  });
+});
 
 var app = builder.Build();
 

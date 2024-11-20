@@ -12,7 +12,6 @@
 	</PropertyGroup>
 	
   <ItemGroup>
-    <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.0.0" />
   </ItemGroup>
 

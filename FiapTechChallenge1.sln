@@ -21,21 +21,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactDelete", "ContactDel
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContactSearch", "ContactSearch", "{00853978-BE2E-4902-97AD-C1455766CB93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactCreation.Controller", "src\ContactCreation\TechChallenge.ContactCreation.Controller\TechChallenge.ContactCreation.Controller.csproj", "{80386F1D-D2DD-4618-BB09-8EFB835D75A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.ContactCreation.Controller", "src\ContactCreation\TechChallenge.ContactCreation.Controller\TechChallenge.ContactCreation.Controller.csproj", "{80386F1D-D2DD-4618-BB09-8EFB835D75A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactCreation.Application", "src\ContactCreation\TechChallenge.ContactCreation.Application\TechChallenge.ContactCreation.Application.csproj", "{903F6FB2-29FC-497D-B0B2-0C1A9311CDAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.ContactCreation.Application", "src\ContactCreation\TechChallenge.ContactCreation.Application\TechChallenge.ContactCreation.Application.csproj", "{903F6FB2-29FC-497D-B0B2-0C1A9311CDAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactDelete.Controller", "src\ContactDelete\TechChallenge.ContactDelete.Controller\TechChallenge.ContactDelete.Controller.csproj", "{0A43534E-2748-4ABE-A320-110BAA3656BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.ContactDelete.Controller", "src\ContactDelete\TechChallenge.ContactDelete.Controller\TechChallenge.ContactDelete.Controller.csproj", "{0A43534E-2748-4ABE-A320-110BAA3656BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactDelete.Application", "src\ContactDelete\TechChallenge.ContactDelete.Application\TechChallenge.ContactDelete.Application.csproj", "{1D194656-8EE8-42A6-816D-C952D13A0F40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.ContactDelete.Application", "src\ContactDelete\TechChallenge.ContactDelete.Application\TechChallenge.ContactDelete.Application.csproj", "{1D194656-8EE8-42A6-816D-C952D13A0F40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactSearch.Controller", "src\ContactSearch\TechChallenge.ContactSearch.Controller\TechChallenge.ContactSearch.Controller.csproj", "{061E103C-796E-4C3C-8659-542863023E21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.ContactSearch.Controller", "src\ContactSearch\TechChallenge.ContactSearch.Controller\TechChallenge.ContactSearch.Controller.csproj", "{061E103C-796E-4C3C-8659-542863023E21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactSearch.Application", "src\ContactSearch\TechChallenge.ContactSearch.Application\TechChallenge.ContactSearch.Application.csproj", "{0AC8CDBC-AD80-47EC-977D-E9FCCD6792C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.ContactSearch.Application", "src\ContactSearch\TechChallenge.ContactSearch.Application\TechChallenge.ContactSearch.Application.csproj", "{0AC8CDBC-AD80-47EC-977D-E9FCCD6792C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactUpdate.Controller", "src\ContactUpdate\TechChallenge.ContactUpdate.Controller\TechChallenge.ContactUpdate.Controller.csproj", "{C6E363EE-5488-4BE7-95A4-161E4C5544D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.ContactUpdate.Controller", "src\ContactUpdate\TechChallenge.ContactUpdate.Controller\TechChallenge.ContactUpdate.Controller.csproj", "{C6E363EE-5488-4BE7-95A4-161E4C5544D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.ContactUpdate.Application", "src\ContactUpdate\TechChallenge.ContactUpdate.Application\TechChallenge.ContactUpdate.Application.csproj", "{975587D3-D87F-44EC-826B-8A7EE05CDF7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.ContactUpdate.Application", "src\ContactUpdate\TechChallenge.ContactUpdate.Application\TechChallenge.ContactUpdate.Application.csproj", "{975587D3-D87F-44EC-826B-8A7EE05CDF7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

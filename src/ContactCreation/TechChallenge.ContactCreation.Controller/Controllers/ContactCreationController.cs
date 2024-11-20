@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MassTransit;
+using Microsoft.AspNetCore.Mvc;
 using TechChallenge.ContactCreation.Application.DTO;
 using TechChallenge.ContactCreation.Application.Services;
 using TechChallenge.Domain.Shared;
+using static MassTransit.ValidationResultExtensions;
 
 namespace TechChallenge.ContactCreation.Controller.Controllers;
 [Route("api/contacts/creation")]
@@ -10,11 +12,14 @@ public class ContactCreationController : ControllerBase
 {
 
   private readonly IContactService _contactService;
+  private readonly IBus _bus;
 
-  public ContactCreationController(IContactService contactService)
+  public ContactCreationController(IBus bus,IContactService contactService)
   {
     _contactService = contactService;
+    _bus = bus;
   }
+
   /// <summary>
   /// Create a Contact.
   /// </summary>
@@ -29,8 +34,15 @@ public class ContactCreationController : ControllerBase
   public async Task<IActionResult> CreateContact([FromBody] ContactCreationDTO request)
   {
 
-    var result = await _contactService.CreateContact(request);
+    var result = await _contactService.CreateContactValidation(request);
+    if (result.Success)
+    {
+      var endpoint = await _bus.GetSendEndpoint(new Uri("queue:fila"));
+      await endpoint.Send(result.Data);
 
+      return StatusCode((int)result.StatusCode, result);
+    }
+   
     return StatusCode((int)result.StatusCode, result);
   }
 }

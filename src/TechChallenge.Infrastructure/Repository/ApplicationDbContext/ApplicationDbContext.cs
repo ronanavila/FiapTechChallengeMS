@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System.Reflection.Metadata;
 using TechChallenge.Domain.Entities;
 
 namespace TechChallenge.Infrastructure.Repository.ApplicationDbContext;
