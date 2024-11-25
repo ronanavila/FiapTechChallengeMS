@@ -1,12 +1,9 @@
 ﻿using Flunt.Notifications;
-using MassTransit;
-using Microsoft.Extensions.Configuration;
 using System.Net;
 using TechChallenge.ContactCreation.Application.DTO;
 using TechChallenge.ContactCreation.Application.Mapping;
 using TechChallenge.Domain.Contracts;
 using TechChallenge.Domain.Shared;
-using static MassTransit.MessageHeaders;
 
 namespace TechChallenge.ContactCreation.Application.Services;
 public class ContactService : Notifiable<Notification>, IContactService

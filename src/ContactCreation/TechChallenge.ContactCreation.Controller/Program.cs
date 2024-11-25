@@ -1,10 +1,10 @@
 using MassTransit;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 using System.Reflection;
 using TechChallenge.ContactCreation.Application.Services;
+using TechChallenge.ContactCreation.Controller;
 using TechChallenge.Infrastructure.Repository.ApplicationDbContext;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,19 +28,6 @@ builder.Services.AddSwaggerGen(
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
   });
-
-
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-{
-  var configuration = new ConfigurationBuilder()
-    .AddJsonFile("appsettings.json")
-    .AddEnvironmentVariables()
-    .Build();
-
-  var connectionString = configuration.GetConnectionString("DefaultConnection");
-  options.UseSqlServer(connectionString);
-  options.UseLazyLoadingProxies();
-}, ServiceLifetime.Scoped);
 
 builder.Services.AddTransient<IContactService, ContactService>();
 
@@ -86,7 +73,6 @@ builder.Services.AddMassTransit(x =>
 var app = builder.Build();
 
 
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -94,6 +80,7 @@ if (app.Environment.IsDevelopment())
   app.UseSwaggerUI();
 }
 
+LoadConfiguration(app);
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
@@ -101,3 +88,13 @@ app.MapPrometheusScrapingEndpoint();
 app.MapControllers();
 
 app.Run();
+
+
+
+void LoadConfiguration(WebApplication app)
+{
+  Configuration.Server = app.Configuration.GetSection("MassTransit").GetValue<string>("Server") ?? string.Empty;
+  Configuration.User = app.Configuration.GetSection("MassTransit").GetValue<string>("User") ?? string.Empty;
+  Configuration.Password = app.Configuration.GetSection("MassTransit").GetValue<string>("Password") ?? string.Empty; 
+  Configuration.QueueName = app.Configuration.GetSection("MassTransit").GetValue<string>("QueueName") ?? string.Empty;
+}

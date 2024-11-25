@@ -1,20 +1,13 @@
-﻿using TechChallenge.ContactUpdate.Application.DTO;
+﻿using Flunt.Notifications;
+using System.Net;
+using TechChallenge.ContactUpdate.Application.DTO;
 using TechChallenge.ContactUpdate.Application.Mapping;
 using TechChallenge.Domain.Contracts;
-using TechChallenge.Domain.Repository;
 using TechChallenge.Domain.Shared;
-using Flunt.Notifications;
-using System.Net;
 
 namespace TechChallenge.ContactUpdate.Application.Services;
 public class ContactService : Notifiable<Notification>, IContactService
 {
-  private readonly IContactRepository _repository;
-
-  public ContactService(IContactRepository repository)
-  {
-    _repository = repository;
-  }
 
   public async Task<IResponse> UpdateContact(ContactUpdateDTO contactDto)
   {
@@ -28,16 +21,8 @@ public class ContactService : Notifiable<Notification>, IContactService
       }
 
       var contact = ContactMapping.FromUpdateDTO(contactDto);
-      var contactResponse = await _repository.UpdateContact(contact);
-
-      if (String.IsNullOrWhiteSpace(contactResponse.Name))
-      {
-        return new BaseResponse(HttpStatusCode.NotFound, false, new List<Notification>() { new Notification("UpdateContact", "Contato não encontrado") });
-      }
-
-      var contactResponseDto = ContactMapping.ToResponseDTO(contactResponse);
-
-      return new BaseResponse(HttpStatusCode.OK, true, "Atualização do contato realizada.", contactResponseDto);
+ 
+      return new BaseResponse(HttpStatusCode.Accepted,  true, "Atualização do contato realizada.", contact);
 
     }
     catch

@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MassTransit;
+using Microsoft.AspNetCore.Mvc;
 using TechChallenge.ContactUpdate.Application.DTO;
 using TechChallenge.ContactUpdate.Application.Services;
+using TechChallenge.ContactUpdate.Controller;
 using TechChallenge.Domain.Shared;
 
 namespace TechChallenge.Api.Controllers;
@@ -9,11 +11,14 @@ namespace TechChallenge.Api.Controllers;
 public class ContactUpdateController : ControllerBase
 {
   private readonly IContactService _contactService;
+  private readonly IBus _bus;
 
-  public ContactUpdateController(IContactService contactService)
+  public ContactUpdateController(IBus bus, IContactService contactService)
   {
     _contactService = contactService;
+    _bus = bus;
   }
+
 
   /// <summary>
   /// Update a contact
@@ -31,6 +36,15 @@ public class ContactUpdateController : ControllerBase
   {
 
     var result = await _contactService.UpdateContact(contactDto);
+
+    if (result.Success)
+    {
+      var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{Configuration.QueueName}"));
+
+      await endpoint.Send(result.Data);
+
+      return StatusCode((int)result.StatusCode, result);
+    }
 
     return StatusCode((int)result.StatusCode, result);
   }

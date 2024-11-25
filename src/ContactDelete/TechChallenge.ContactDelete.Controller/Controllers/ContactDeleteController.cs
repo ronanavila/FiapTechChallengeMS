@@ -1,17 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MassTransit;
+using Microsoft.AspNetCore.Mvc;
+using TechChallenge.ContactDelete.Controller;
 using TechChallenge.ContactDelete.Application.Services;
 using TechChallenge.Domain.Shared;
+using static MassTransit.Monitoring.Performance.BuiltInCounters;
+using System.Text;
 
 namespace TechChallenge.Api.Controllers;
 [Route("api/contacts/delete")]
 [ApiController]
 public class ContactDeleteController : ControllerBase
 {
-  private readonly IContactService _contactService;
-
-  public ContactDeleteController(IContactService contactService)
+  private readonly IBus _bus;
+  public ContactDeleteController(IBus bus)
   {
-    _contactService = contactService;
+
+    _bus = bus;
   }
 
   /// <summary>
@@ -26,10 +30,22 @@ public class ContactDeleteController : ControllerBase
   [ProducesResponseType(typeof(BaseResponse), StatusCodes.Status404NotFound)]
   [ProducesResponseType(typeof(BaseResponse), StatusCodes.Status500InternalServerError)]
   public async Task<IActionResult> RemoveContact([FromRoute] Guid guid)
-  {
+  { 
+      var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{Configuration.QueueName}"));
 
-    var result = await _contactService.Delete(guid);
+    await endpoint.Send(new Teste(guid));
 
-    return StatusCode((int)result.StatusCode, result);
+      return StatusCode(202, "");
   }
+}
+
+
+public class Teste
+{
+    public Teste(Guid guid)
+    {
+    ContactGuid = guid;
+    }
+
+    public Guid ContactGuid { get; set; }
 }
