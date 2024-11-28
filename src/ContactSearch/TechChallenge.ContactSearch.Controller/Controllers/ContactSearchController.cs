@@ -2,7 +2,7 @@
 using TechChallenge.ContactSearch.Application.Services;
 using TechChallenge.Domain.Shared;
 
-namespace TechChallenge.Api.Controllers;
+namespace TechChallenge.ContactSearch.Controller.Controllers;
 [Route("api/contacts/search")]
 [ApiController]
 public class ContactSearchController : ControllerBase

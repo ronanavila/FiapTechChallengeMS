@@ -2,10 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using TechChallenge.ContactUpdate.Application.DTO;
 using TechChallenge.ContactUpdate.Application.Services;
-using TechChallenge.ContactUpdate.Controller;
 using TechChallenge.Domain.Shared;
 
-namespace TechChallenge.Api.Controllers;
+namespace TechChallenge.ContactUpdate.Controller.Controllers;
 [Route("api/contacts/update")]
 [ApiController]
 public class ContactUpdateController : ControllerBase

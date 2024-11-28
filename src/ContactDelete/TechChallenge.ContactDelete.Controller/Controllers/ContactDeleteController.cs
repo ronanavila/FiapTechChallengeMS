@@ -1,12 +1,9 @@
 ﻿using MassTransit;
 using Microsoft.AspNetCore.Mvc;
-using TechChallenge.ContactDelete.Controller;
-using TechChallenge.ContactDelete.Application.Services;
+using TechChallenge.Domain.Entities;
 using TechChallenge.Domain.Shared;
-using static MassTransit.Monitoring.Performance.BuiltInCounters;
-using System.Text;
 
-namespace TechChallenge.Api.Controllers;
+namespace TechChallenge.ContactDelete.Controller.Controllers;
 [Route("api/contacts/delete")]
 [ApiController]
 public class ContactDeleteController : ControllerBase
@@ -33,19 +30,8 @@ public class ContactDeleteController : ControllerBase
   { 
       var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{Configuration.QueueName}"));
 
-    await endpoint.Send(new Teste(guid));
+    await endpoint.Send(new ContactGuidClass() { ContactGuid = guid});
 
       return StatusCode(202, "");
   }
-}
-
-
-public class Teste
-{
-    public Teste(Guid guid)
-    {
-    ContactGuid = guid;
-    }
-
-    public Guid ContactGuid { get; set; }
 }
