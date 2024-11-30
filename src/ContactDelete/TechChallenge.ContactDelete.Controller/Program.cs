@@ -3,10 +3,7 @@ using Microsoft.OpenApi.Models;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 using System.Reflection;
-using TechChallenge.ContactDelete.Application.Services;
 using TechChallenge.ContactDelete.Controller;
-using TechChallenge.Domain.Repository;
-using TechChallenge.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

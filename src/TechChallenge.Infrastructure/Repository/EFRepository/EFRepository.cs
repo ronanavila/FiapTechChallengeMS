@@ -1,6 +1,5 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using System;
 using TechChallenge.Domain.Entities;
 using TechChallenge.Domain.Repository;
 using TechChallenge.Infrastructure.Repository.ApplicationDbContext;
@@ -19,7 +18,7 @@ public class EFRepository<T> : IRepository<T> where T : BaseEntity
 
   public async Task<T> Update(T entidade)
   {
-      _dbSet.Update(entidade);
+    _dbSet.Update(entidade);
     await _context.SaveChangesAsync();
     return entidade;
   }
@@ -35,19 +34,25 @@ public class EFRepository<T> : IRepository<T> where T : BaseEntity
   public async Task<T> Delete(Guid guid)
   {
     var entity = await GetById(guid);
-    if(entity is null)
+    if (entity is null)
     {
       return entity;
     }
     _dbSet.Remove(entity);
-   await _context.SaveChangesAsync();
+    await _context.SaveChangesAsync();
 
     return entity;
   }
 
-  public async Task<T>  GetById(Guid guid)
-      => await _dbSet.FirstOrDefaultAsync(entity => entity.Guid == guid);
+  public async Task<T> GetById(Guid guid)
+  {
+    var get = await _dbSet.FirstOrDefaultAsync(entity => entity.Guid == guid);
 
-  public async  Task<IList<T>> GetAll()
-      => await _dbSet.ToListAsync();
+    return get;
+  }
+
+  public async Task<IList<T>> GetAll()
+  {
+    return await _dbSet.ToListAsync();
+  }
 }

@@ -43,7 +43,10 @@ public class ApplicationDbContext : DbContext
   {
     if (!optionsBuilder.IsConfigured)
     {
-      optionsBuilder.UseSqlServer(_connectionString);
+      optionsBuilder
+        .UseSqlServer(_connectionString);
+        //.LogTo(x => Console.WriteLine(x))
+        //.EnableSensitiveDataLogging();
     }
   }
 

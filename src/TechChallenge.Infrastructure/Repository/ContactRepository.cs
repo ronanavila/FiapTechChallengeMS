@@ -11,13 +11,13 @@ public class ContactRepository : EFRepository<Contact>, IContactRepository
 
   }
 
-  public async Task<Contact> UpdateContact(Contact contact)
+  public async Task UpdateContact(Contact contact)
   {
-    var oldContact = await GetById(contact.Guid);
+    var oldContact = await GetContactById(contact.Guid);
 
     if(oldContact is null)
     {
-      return new Contact();
+      return;
     }
 
     oldContact.Name = contact.Name;
@@ -25,8 +25,7 @@ public class ContactRepository : EFRepository<Contact>, IContactRepository
     oldContact.Region = contact.Region;
     oldContact.Email = contact.Email;
 
-    await _context.SaveChangesAsync();
-    return contact;
+    await _context.SaveChangesAsync();    
   }
 
   public async Task<List<Contact>> GetContactByRegion(int ddd)
@@ -80,12 +79,28 @@ public class ContactRepository : EFRepository<Contact>, IContactRepository
     return conctacts;
   }
 
-  public async Task<Guid> CreateContact(Contact contact)
+  public async Task CreateContact(Contact contact)
   {
     await _dbSet.AddAsync(contact);
     await _context.SaveChangesAsync();
+  }
 
-    return contact.Guid;
+  public async Task DeleteContact(Guid guid)
+  {
+    var entity = await GetContactById(guid);
+    if (entity is null)
+    {
+      return;
+    }
+    _dbSet.Remove(entity);
+    await _context.SaveChangesAsync();
+  }
+
+  public async Task<Contact?> GetContactById(Guid guid)
+  {
+    var get = await _dbSet.FirstOrDefaultAsync(entity => entity.Guid == guid);
+
+    return get;
   }
 
 }
