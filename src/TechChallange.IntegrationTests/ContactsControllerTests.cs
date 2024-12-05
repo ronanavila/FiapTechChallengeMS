@@ -1,13 +1,8 @@
 using Flunt.Notifications;
-using Microsoft.Identity.Client;
-using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Net.Http.Json;
-using System.Text.Json;
-using System.Text.Json.Nodes;
-using TechChallenge.Application.DTO;
-using TechChallenge.Domain.Contracts;
-using TechChallenge.Domain.Shared;
+using TechChallenge.ContactCreation.Application.DTO;
+using TechChallenge.ContactUpdate.Application.DTO;
 
 namespace TechChallange.IntegrationTests;
 

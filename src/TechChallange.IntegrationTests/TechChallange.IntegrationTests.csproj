@@ -24,6 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ContactCreation\TechChallenge.ContactCreation.Application\TechChallenge.ContactCreation.Application.csproj" />
+    <ProjectReference Include="..\ContactCreation\TechChallenge.ContactCreation.Controller\TechChallenge.ContactCreation.Controller.csproj" />
+    <ProjectReference Include="..\ContactDelete\TechChallenge.ContactDelete.Controller\TechChallenge.ContactDelete.Controller.csproj" />
+    <ProjectReference Include="..\ContactSearch\TechChallenge.ContactSearch.Controller\TechChallenge.ContactSearch.Controller.csproj" />
+    <ProjectReference Include="..\ContactUpdate\TechChallenge.ContactUpdate.Application\TechChallenge.ContactUpdate.Application.csproj" />
+    <ProjectReference Include="..\ContactUpdate\TechChallenge.ContactUpdate.Controller\TechChallenge.ContactUpdate.Controller.csproj" />
     <ProjectReference Include="..\TechChallenge.Domain\TechChallenge.Domain.csproj" />
     <ProjectReference Include="..\TechChallenge.Infrastructure\TechChallenge.Infrastructure.csproj" />
   </ItemGroup>

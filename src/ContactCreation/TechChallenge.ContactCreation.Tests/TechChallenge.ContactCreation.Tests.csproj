@@ -24,8 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TechChallenge.Domain\TechChallenge.Domain.csproj" />
-    <ProjectReference Include="..\TechChallenge.Infrastructure\TechChallenge.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\ContactCreation\TechChallenge.ContactCreation.Application\TechChallenge.ContactCreation.Application.csproj" />
+    <ProjectReference Include="..\..\ContactCreation\TechChallenge.ContactCreation.Controller\TechChallenge.ContactCreation.Controller.csproj" />
+    <ProjectReference Include="..\..\TechChallenge.Domain\TechChallenge.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

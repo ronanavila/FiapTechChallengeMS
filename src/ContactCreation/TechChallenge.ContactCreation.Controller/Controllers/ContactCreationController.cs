@@ -36,7 +36,7 @@ public class ContactCreationController : ControllerBase
     var result = await _contactService.CreateContactValidation(request);
     if (result.Success)
     {
-      var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{Configuration.QueueName}"));
+      ISendEndpoint? endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{Configuration.QueueName}"));
 
       await endpoint.Send(result.Data);
 
