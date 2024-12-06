@@ -2,9 +2,9 @@ using Flunt.Notifications;
 using System.Net;
 using System.Net.Http.Json;
 using TechChallenge.ContactCreation.Application.DTO;
-using TechChallenge.ContactUpdate.Application.DTO;
 
-namespace TechChallange.IntegrationTests;
+
+namespace TechChallenge.IntegrationTests;
 
 public class ContactsControllerTests
 {

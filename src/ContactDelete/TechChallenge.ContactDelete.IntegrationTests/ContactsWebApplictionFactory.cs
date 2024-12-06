@@ -7,8 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using TechChallenge.Infrastructure.Repository.ApplicationDbContext;
 
-namespace TechChallenge.IntegrationTests;
-internal class ContactsWebApplictionFactory : WebApplicationFactory<Program>
+namespace TechChallenge.ContactDelete.IntegrationTests;
+
+internal class ContactDeleteWebApplictionFactory : WebApplicationFactory<Program>
 {
   protected override void ConfigureWebHost(IWebHostBuilder builder)
   {
@@ -21,7 +22,8 @@ internal class ContactsWebApplictionFactory : WebApplicationFactory<Program>
       services.AddSqlServer<ApplicationDbContext>(connString);
       var dbContext = CreateDbContext(services);
       dbContext.Database.EnsureDeleted();
-      dbContext.Database.Migrate();
+      dbContext.Database.EnsureCreated();
+      //dbContext.Database.Migrate();
     });
   }
 

@@ -27,11 +27,11 @@ public class ContactDeleteController : ControllerBase
   [ProducesResponseType(typeof(BaseResponse), StatusCodes.Status404NotFound)]
   [ProducesResponseType(typeof(BaseResponse), StatusCodes.Status500InternalServerError)]
   public async Task<IActionResult> RemoveContact([FromRoute] Guid guid)
-  { 
-      var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{Configuration.QueueName}"));
+  {
+    var endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{Configuration.QueueName}"));
 
-    await endpoint.Send(new ContactGuidClass() { ContactGuid = guid});
+    await endpoint.Send(new ContactGuidClass() { ContactGuid = guid });
 
-      return StatusCode(202, "");
+    return StatusCode(202, "");
   }
 }

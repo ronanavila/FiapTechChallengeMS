@@ -7,7 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using TechChallenge.Infrastructure.Repository.ApplicationDbContext;
 
-namespace TechChallenge.IntegrationTests;
+namespace TechChallenge.ContactUpdate.IntegrationTests;
+
 internal class ContactsWebApplictionFactory : WebApplicationFactory<Program>
 {
   protected override void ConfigureWebHost(IWebHostBuilder builder)
