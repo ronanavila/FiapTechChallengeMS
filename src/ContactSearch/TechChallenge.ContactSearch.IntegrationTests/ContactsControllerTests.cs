@@ -1,7 +1,7 @@
 using Flunt.Notifications;
 using System.Net;
 using System.Net.Http.Json;
-using TechChallenge.ContactCreation.Application.DTO;
+using TechChallenge.ContactSearch.Application.DTO;
 
 
 namespace TechChallenge.ContactSearch.IntegrationTests;
@@ -12,15 +12,15 @@ public class ContactsControllerTests
   public async Task ContactsGetAllContacts()
   {
     //Arrange
-    var application = new ContactsWebApplictionFactory();
+    var application = new ContactSearchWebApplictionFactory();
     var client = application.CreateClient();
     //Act
-    var response = await client.GetAsync("/api/contacts");
-    //Assert
+    var response = await client.GetAsync("/api/contacts/search");
+  
     response.EnsureSuccessStatusCode();
 
     var matchResponse = await response.Content.ReadFromJsonAsync<TestResponses<List<ContactResponseDTO>>>();
-
+      //Assert
     Assert.True(matchResponse?.Success);
     Assert.Null(matchResponse?.Errors);
     Assert.True(matchResponse?.Data.Count > 0);
@@ -30,10 +30,10 @@ public class ContactsControllerTests
   public async Task ContactsGetContactByRegion()
   {
     //Arrange
-    var application = new ContactsWebApplictionFactory();
+    var application = new ContactSearchWebApplictionFactory();
     var client = application.CreateClient();
     //Act
-    var response = await client.GetAsync("/api/contacts/12");
+    var response = await client.GetAsync("/api/contacts/search/12");
     //Assert
     response.EnsureSuccessStatusCode();
 

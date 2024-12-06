@@ -1,7 +1,6 @@
 using Flunt.Notifications;
 using System.Net;
 using System.Net.Http.Json;
-using TechChallenge.ContactCreation.Application.DTO;
 using TechChallenge.ContactUpdate.Application.DTO;
 
 
@@ -13,18 +12,14 @@ public class ContactsControllerTests
   public async Task ContactsUpdateContact()
   {
     //Arrange
-    var application = new ContactsWebApplictionFactory();
+    var application = new ContactUpdateWebApplictionFactory();
     var client = application.CreateClient();
 
-    var getResponse = await client.GetAsync("/api/contacts");
-    getResponse.EnsureSuccessStatusCode();
-    var getMatchResponse = await getResponse.Content.ReadFromJsonAsync<TestResponses<List<ContactResponseDTO>>>();
-    var guid = getMatchResponse.Data.FirstOrDefault().Guid;
-
-    ContactUpdateDTO contact = new ContactUpdateDTO(guid, "João", "joao@gmail.com", 12, "999998888");
+  
+    ContactUpdateDTO contact = new ContactUpdateDTO(Guid.Parse("abf91f63-af68-4856-bd87-09014f894c69"), "Igor", "igor@igor.com", 12, "888889999");
 
     //Act
-    var response = await client.PutAsJsonAsync("/api/contacts", contact);
+    var response = await client.PutAsJsonAsync("/api/contacts/update", contact);
 
     //Assert
     response.EnsureSuccessStatusCode();
