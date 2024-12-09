@@ -44,5 +44,3 @@ jobs:
 
     - name: Integration Test Delete
       run: dotnet test ./src/ContactDelete/TechChallenge.ContactDelete.IntegrationTests/TechChallenge.ContactDelete.IntegrationTests.csproj  --no-build --verbosity minimal  
-
-./src/ContactCreation/TechChallenge.ContactCreation.IntegrationTests/TechChallenge.ContactCreation.IntegrationTests.csproj
