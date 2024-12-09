@@ -25,23 +25,24 @@ jobs:
       run: dotnet test ./src/ContactCreation/TechChallenge.ContactCreation.Tests/TechChallenge.ContactCreation.Tests.csproj --no-build --verbosity minimal
 
     - name: Integration Test Create
-      run: dotnet test ./src/ContactCreation/TechChallange.ContactCreation.IntegrationTests/TechChallange.ContactCreation.IntegrationTests.csproj  --no-build --verbosity minimal
+      run: dotnet test ./src/ContactCreation/TechChallenge.ContactCreation.IntegrationTests/TechChallenge.ContactCreation.IntegrationTests.csproj  --no-build --verbosity minimal
 
     - name: Test Update
       run: dotnet test ./src/ContactUpdate/TechChallenge.ContactUpdate.Tests/TechChallenge.ContactUpdate.Tests.csproj --no-build --verbosity minimal
 
     - name: Integration Test Update
-      run: dotnet test ./src/ContactUpdate/TechChallange.ContactUpdate.IntegrationTests/TechChallange.ContactUpdate.IntegrationTests.csproj  --no-build --verbosity minimal
+      run: dotnet test ./src/ContactUpdate/TechChallenge.ContactUpdate.IntegrationTests/TechChallenge.ContactUpdate.IntegrationTests.csproj  --no-build --verbosity minimal
 
     - name: Test Search
       run: dotnet test ./src/ContactSearch/TechChallenge.ContactSearch.Tests/TechChallenge.ContactSearch.Tests.csproj --no-build --verbosity minimal
 
     - name: Integration Test Search
-      run: dotnet test ./src/ContactSearch/TechChallange.ContactSearch.IntegrationTests/TechChallange.ContactSearch.IntegrationTests.csproj  --no-build --verbosity minimal      
+      run: dotnet test ./src/ContactSearch/TechChallenge.ContactSearch.IntegrationTests/TechChallenge.ContactSearch.IntegrationTests.csproj  --no-build --verbosity minimal      
 
     - name: Test Delete
       run: dotnet test ./src/ContactDelete/TechChallenge.ContactDelete.Tests/TechChallenge.ContactDelete.Tests.csproj --no-build --verbosity minimal
 
     - name: Integration Test Delete
-      run: dotnet test ./src/ContactDelete/TechChallange.ContactDelete.IntegrationTests/TechChallange.ContactDelete.IntegrationTests.csproj  --no-build --verbosity minimal  
+      run: dotnet test ./src/ContactDelete/TechChallenge.ContactDelete.IntegrationTests/TechChallenge.ContactDelete.IntegrationTests.csproj  --no-build --verbosity minimal  
 
+./src/ContactCreation/TechChallenge.ContactCreation.IntegrationTests/TechChallenge.ContactCreation.IntegrationTests.csproj
