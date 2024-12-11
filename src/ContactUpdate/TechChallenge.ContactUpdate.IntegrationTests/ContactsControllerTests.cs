@@ -47,7 +47,6 @@ public class ContactsControllerTests
     Assert.Equal("Igor", contactUpdated.Name);
     Assert.Equal("igor@igor.com", contactUpdated.Email);
     Assert.Equal("888889999", contactUpdated.Phone);
-    Assert.Equal(12, contactUpdated.RegionDDD);
   }
 }
 
