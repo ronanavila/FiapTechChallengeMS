@@ -1,0 +1,75 @@
+name: 'consumers-integration-test'
+
+services:
+
+  rabbit:
+    image: masstransit/rabbitmq:latest
+    container_name: rabbit.integration.tests
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  ms-sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserverms.integration.tests
+    hostname: sqlserver
+    environment:
+      SA_PASSWORD: "1q2w3e4r@#$"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+
+  consumercreate: 
+    build:
+      context: .
+      dockerfile: ./src/ContactCreation/TechChallenge.ContactCreation.Consumer/Dockerfile
+    container_name: contactcreation.consumer.integration.tests
+    environment:
+        ASPNETCORE_ENVIRONMENT: Tests
+        ConnectionStrings__IntegrationTestConnection: Server=ms-sql,1433;Database=TechChallengeIntTests;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False;TrustServerCertificate=True;
+        MassTransit__QueueName: Creation
+        MassTransit__Server: rabbit
+        MassTransit__User: guest
+        MassTransit__Password: guest
+    depends_on:
+      ms-sql:
+        condition: service_started 
+      rabbit:
+        condition: service_started            
+
+  consumerupdate: 
+    build:
+      context: .
+      dockerfile: ./src/ContactUpdate/TechChallenge.ContactUpdate.Consumer/Dockerfile
+    container_name: contactupdate.consumer.integration.tests
+    environment:
+        ASPNETCORE_ENVIRONMENT: Tests
+        ConnectionStrings__IntegrationTestConnection: Server=ms-sql,1433;Database=TechChallengeIntTests;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False;TrustServerCertificate=True;
+        MassTransit__QueueName: Update
+        MassTransit__Server: rabbit
+        MassTransit__User: guest
+        MassTransit__Password: guest
+    depends_on:
+      ms-sql:
+        condition: service_started 
+      rabbit:
+        condition: service_started      
+
+  
+  consumerdelete: 
+    build:
+      context: .
+      dockerfile: ./src/ContactDelete/TechChallenge.ContactDelete.Consumer/Dockerfile
+    container_name: contactdelete.consumer.integration.tests
+    environment:
+        ASPNETCORE_ENVIRONMENT: Tests
+        ConnectionStrings__IntegrationTestConnection: Server=ms-sql,1433;Database=TechChallengeIntTests;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False;TrustServerCertificate=True;
+        MassTransit__QueueName: Delete
+        MassTransit__Server: rabbit
+        MassTransit__User: guest
+        MassTransit__Password: guest
+    depends_on:
+      ms-sql:
+        condition: service_started 
+      rabbit:
+        condition: service_started  

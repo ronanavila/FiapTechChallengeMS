@@ -15,7 +15,16 @@ var queueName = configuration.GetSection("MassTransit")["QueueName"] ?? string.E
 var server = configuration.GetSection("MassTransit")["Server"] ?? string.Empty;
 var user = configuration.GetSection("MassTransit")["User"] ?? string.Empty;
 var password = configuration.GetSection("MassTransit")["Password"] ?? string.Empty;
-var connectionString = configuration.GetConnectionString("DefaultConnection");
+var connectionString = string.Empty;
+
+if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") != "Tests")
+{
+  connectionString = configuration.GetConnectionString("DefaultConnection");
+}
+else
+{
+  connectionString = configuration.GetConnectionString("IntegrationTestConnection");
+}
 
 
 builder.Services.AddTransient<ICreateContactService, CreateContactService>();
