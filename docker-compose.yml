@@ -1,9 +1,17 @@
-name: 'tech-challenge'
+name: 'tech-challenge-micro-servico'
 
 services:
+
+  rabbit:
+    image: masstransit/rabbitmq:latest
+    container_name: rabbit
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
   ms-sql:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: sqlserver
+    container_name: sqlserverms
     hostname: sqlserver
     environment:
       SA_PASSWORD: "1q2w3e4r@#$"
@@ -14,7 +22,7 @@ services:
       
   mssqltools:
     image: mcr.microsoft.com/mssql-tools
-    container_name: mssqltools
+    container_name: mssqltoolsms
     depends_on:
       ms-sql:
         condition: service_started   
@@ -26,30 +34,142 @@ services:
       - ./sql/script.sh:/tmp/script.sh
     command: /bin/bash ./tmp/script.sh
 
-  api: 
+
+  controllercreate: 
     build:
       context: .
-      dockerfile: ./Dockerfile
-    container_name: techchallenge.api
+      dockerfile: ./src/ContactCreation/TechChallenge.ContactCreation.Controller/Dockerfile
+    container_name: controllercreate.controller
     environment:
         ASPNETCORE_ENVIRONMENT: Development
-        ConnectionStrings__DefaultConnection: Server=ms-sql,1433;Database=TechChallenge;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;
+        MassTransit__QueueName: Creation
+        MassTransit__Server: rabbit
+        MassTransit__User: guest
+        MassTransit__Password: guest
     depends_on:
       ms-sql:
         condition: service_started  
+      rabbit:
+        condition: service_started       
     ports:
-      - "8080:8080"  
+      - "8090:8080" 
+
+  consumercreate: 
+    build:
+      context: .
+      dockerfile: ./src/ContactCreation/TechChallenge.ContactCreation.Consumer/Dockerfile
+    container_name: contactcreation.consumer
+    environment:
+        ASPNETCORE_ENVIRONMENT: Development
+        ConnectionStrings__DefaultConnection: Server=ms-sql,1433;Database=TechChallenge;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;
+        MassTransit__QueueName: Creation
+        MassTransit__Server: rabbit
+        MassTransit__User: guest
+        MassTransit__Password: guest
+    depends_on:
+      ms-sql:
+        condition: service_started 
+      rabbit:
+        condition: service_started            
+
+  controllerupdate: 
+    build:
+      context: .
+      dockerfile: ./src/ContactUpdate/TechChallenge.ContactUpdate.Controller/Dockerfile
+    container_name: controllerupdate.controller
+    environment:
+        ASPNETCORE_ENVIRONMENT: Development
+        MassTransit__QueueName: Update
+        MassTransit__Server: rabbit
+        MassTransit__User: guest
+        MassTransit__Password: guest
+    depends_on:
+      ms-sql:
+        condition: service_started  
+      rabbit:
+        condition: service_started       
+    ports:
+      - "8091:8080" 
+
+  consumerupdate: 
+    build:
+      context: .
+      dockerfile: ./src/ContactUpdate/TechChallenge.ContactUpdate.Consumer/Dockerfile
+    container_name: contactupdate.consumer
+    environment:
+        ASPNETCORE_ENVIRONMENT: Development
+        ConnectionStrings__DefaultConnection: Server=ms-sql,1433;Database=TechChallenge;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;
+        MassTransit__QueueName: Update
+        MassTransit__Server: rabbit
+        MassTransit__User: guest
+        MassTransit__Password: guest
+    depends_on:
+      ms-sql:
+        condition: service_started 
+      rabbit:
+        condition: service_started      
+
+  controllersearch: 
+    build:
+      context: .
+      dockerfile: ./src/ContactSearch/TechChallenge.ContactSearch.Controller/Dockerfile
+    container_name: controllersearch.controller
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: Server=ms-sql,1433;Database=TechChallenge;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;
+    depends_on:
+      ms-sql:
+        condition: service_started        
+    ports:
+      - "8092:8080"   
+
+  controllerdelete: 
+    build:
+      context: .
+      dockerfile: ./src/ContactDelete/TechChallenge.ContactDelete.Controller/Dockerfile
+    container_name: controllerdelete.controller
+    environment:
+        ASPNETCORE_ENVIRONMENT: Development
+        MassTransit__QueueName: Delete
+        MassTransit__Server: rabbit
+        MassTransit__User: guest
+        MassTransit__Password: guest
+    depends_on:
+      ms-sql:
+        condition: service_started  
+      rabbit:
+        condition: service_started       
+    ports:
+      - "8093:8080" 
+
+  consumerdelete: 
+    build:
+      context: .
+      dockerfile: ./src/ContactDelete/TechChallenge.ContactDelete.Consumer/Dockerfile
+    container_name: contactdelete.consumer
+    environment:
+        ASPNETCORE_ENVIRONMENT: Development
+        ConnectionStrings__DefaultConnection: Server=ms-sql,1433;Database=TechChallenge;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;
+        MassTransit__QueueName: Delete
+        MassTransit__Server: rabbit
+        MassTransit__User: guest
+        MassTransit__Password: guest
+    depends_on:
+      ms-sql:
+        condition: service_started 
+      rabbit:
+        condition: service_started  
 
   prometheus:
-    container_name: prometheus
+    container_name: prometheusms
     image: prom/prometheus:v2.54.1
     volumes:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yml
     ports:
-      - "9090:9090"
+      - "9090:9090"    
 
   grafana:
-    container_name: grafana
+    container_name: grafanams
     image: grafana/grafana:11.2.0 
     environment:
       - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-batman}
