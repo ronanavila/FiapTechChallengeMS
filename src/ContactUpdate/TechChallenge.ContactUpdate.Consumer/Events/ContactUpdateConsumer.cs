@@ -21,7 +21,7 @@ public class ContactUpdateConsumer : IConsumer<Contact>
       if (context is not null)
       {
         await _updateContactService.UpdateContact(context.Message);
-        _logger.LogInformation("Contato criado com sucesso");
+        _logger.LogInformation("Contato atualizado com sucesso");
       }
     }
     catch (Exception ex)

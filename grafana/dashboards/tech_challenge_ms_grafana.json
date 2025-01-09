@@ -24,7 +24,7 @@
   "description": "Tech Challange Endpoints Microservice metrics from OpenTelemetry",
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "gnetId": 19925,
+  "gnetId": 0,
   "graphTooltip": 0,
   "links": [],
   "liveNow": false,
@@ -234,7 +234,7 @@
           "refId": "p99.9"
         }
       ],
-      "title": "Requests Duration - api/contacts/search",
+      "title": "Requests Duration - POST - api/contacts/creation",
       "type": "timeseries"
     },
     {
@@ -415,7 +415,7 @@
           "refId": "5XX"
         }
       ],
-      "title": "Errors Rate - GET api/contact/search",
+      "title": "Errors Rate - POST api/contacts/creation",
       "type": "timeseries"
     },
     {
@@ -835,7 +835,7 @@
           "refId": "p99.9"
         }
       ],
-      "title": "Requests Duration - api/contacts/search",
+      "title": "Requests Duration - GET - api/contacts/search",
       "type": "timeseries"
     },
     {
@@ -1016,7 +1016,7 @@
           "refId": "5XX"
         }
       ],
-      "title": "Errors Rate - GET api/contact/search",
+      "title": "Errors Rate - GET api/contacts/search",
       "type": "timeseries"
     },
     {
@@ -1436,7 +1436,7 @@
           "refId": "p99.9"
         }
       ],
-      "title": "Requests Duration - api/contacts/search/{ddd:int}",
+      "title": "Requests Duration - GET - api/contacts/search/{ddd:int}",
       "type": "timeseries"
     },
     {
@@ -2037,7 +2037,7 @@
           "refId": "p99.9"
         }
       ],
-      "title": "Requests Duration - api/contacts/update",
+      "title": "Requests Duration - PUT - api/contacts/update",
       "type": "timeseries"
     },
     {
@@ -2218,7 +2218,7 @@
           "refId": "5XX"
         }
       ],
-      "title": "Errors Rate - GET - api/contacts/update",
+      "title": "Errors Rate - PUT - api/contacts/update",
       "type": "timeseries"
     },
     {
@@ -2638,7 +2638,7 @@
           "refId": "p99.9"
         }
       ],
-      "title": "Requests Duration - api/contacts/delete",
+      "title": "Requests Duration - DELETE - api/contacts/delete",
       "type": "timeseries"
     },
     {
@@ -2819,7 +2819,7 @@
           "refId": "5XX"
         }
       ],
-      "title": "Errors Rate - GET - api/contacts/delete",
+      "title": "Errors Rate - DELETE - api/contacts/delete",
       "type": "timeseries"
     },
     {

@@ -1,0 +1,14 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy-chiseled-extra AS base
+WORKDIR /app
+ENTRYPOINT [ "dotnet","/app/TechChallenge.ContactCreation.Consumer.dll" ]
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS build
+WORKDIR /app
+COPY ["./src/ContactCreation/TechChallenge.ContactCreation.Consumer", "./ContactCreation/TechChallenge.ContactCreation.Consumer/"]
+COPY ["./src/TechChallenge.Domain", "./TechChallenge.Domain/"]
+COPY ["./src/TechChallenge.Infrastructure", "./TechChallenge.Infrastructure/"]
+RUN dotnet restore  ./ContactCreation/TechChallenge.ContactCreation.Consumer/TechChallenge.ContactCreation.Consumer.csproj -r linux-x64 --property:Configuration=Release 
+RUN dotnet publish  ./ContactCreation/TechChallenge.ContactCreation.Consumer/TechChallenge.ContactCreation.Consumer.csproj -r linux-x64 --no-restore -c Release --property:PublishDir=/app/out --property:ErrorOnDuplicatePublishOutputFiles=false
+
+FROM base
+COPY --from=build /app/out .

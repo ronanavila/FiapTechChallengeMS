@@ -1,0 +1,12 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: config-map-ms-creation
+data:
+    PORT: 8080
+    ASPNETCORE_ENVIRONMENT: Production
+    ConnectionStrings__DefaultConnection: Server=ms-sql,1433;Database=TechChallenge;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;
+    MassTransit__QueueName: Creation
+    MassTransit__Server: localhost
+    MassTransit__User": guest
+    MassTransit__Password": guest

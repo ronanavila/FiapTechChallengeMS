@@ -3,7 +3,7 @@ WORKDIR /app
 ENTRYPOINT [ "/app/TechChallenge.ContactCreation.Controller" ]
 EXPOSE 8080
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy as build
+FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy AS build
 WORKDIR /app
 COPY ./ ./
 RUN dotnet restore -r linux-x64 --property:Configuration=Release

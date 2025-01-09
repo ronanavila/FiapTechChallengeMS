@@ -9,11 +9,15 @@
 	<PropertyGroup>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<NoWarn>$(NoWarn);1591</NoWarn>
+		<UserSecretsId>5864777c-cb8b-420b-acf8-9963bb0422d3</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..\..</DockerfileContext>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="7.3.1" />
 		<PackageReference Include="MassTransit.RabbitMQ" Version="8.3.3" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="7.1.0" />
 	</ItemGroup>
 
