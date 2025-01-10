@@ -1,29 +1,31 @@
-kind: Deployment
 apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: ms-creation
+  name: creation-controller
   labels:
-    app: ms-creation
+    app: creation-controller
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ms-creation
+      app: creation-controller
   template:
     metadata:
+      name: creation-controller
       labels:
-        app: ms-creation
+        app: creation-controller
     spec:
       containers:
-        - name: ms-creation
-          image: c#
-          imagePullPolice: Never
+        - name: creation-controller
+          image: ronanavila/creation-controller
+          env:
           envFrom:
-            - secretRef:
-              name: secret-ms-creation
-              option: true
             - configMapRef:
-              name: config-map-ms-creation
+                name: config-map-creation-controller          
+            - secretRef:
+                name: secret-ms-creation-controller
+                optional: true
+
           # livenessProbe:
           #   httpGet:
           #     path: /api/1
@@ -51,13 +53,13 @@ kind: Service
 metadata:
   annotations:
   labels:
-    app: apps/1
-  name: app-1-Service
-specs:
+    app: creation-controller
+  name: creation-controller-sv
+spec:
   ports:
   - protocol: TCP
     port: 8080
-    targetPort: 8080
+    targetPort: 8550
   selector:
-    app: ms-creation
+    app: creation-controller
   type: NodePort

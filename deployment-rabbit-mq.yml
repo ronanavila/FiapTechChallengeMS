@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+  labels:
+    app: rabbitmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbitmq
+  template:
+    metadata:
+      name: rabbitmq
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: masstransit/rabbitmq:latest
+          env:
+          # envFrom:
+          #   - configMapRef:
+          #       name: config-map-creation-controller          
+          #   - secretRef:
+          #       name: secret-ms-creation-controller
+          #       optional: true
+
+          # livenessProbe:
+          #   httpGet:
+          #     path: /api/1
+          #     port: 80
+          #   initialDelaySeconds: 180
+          #   periodSeconds: 60
+          # readnessProbe:
+          #   httpGet:
+          #     path: /api/1
+          #     port: 80
+          # ports:
+          #   - containerPort: 80
+          # resources:
+          #   limits:
+          #     cpu: 2
+          #     ephemeral-storage: 1Gi
+          #     memory: 8Gi
+          #   requests:
+          #     cpu: 2
+          #     ephemeral-storage: 1Gi
+          #     memory: 8Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  labels:
+    app: rabbitmq
+  name: rabbitmq-sv
+spec:
+  ports:
+  - protocol: TCP
+    name: app
+    port: 5672 
+    targetPort: 5672
+  - protocol: TCP
+    name: web
+    port: 15672 
+    targetPort: 15672
+  selector:
+    app: rabbitmq
+  type: NodePort
