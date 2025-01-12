@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rabbitmq
+  name: search-controller
   labels:
-    app: rabbitmq
+    app: search-controller
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rabbitmq
+      app: search-controller
   template:
     metadata:
-      name: rabbitmq
+      name: search-controller
       labels:
-        app: rabbitmq
+        app: search-controller
     spec:
       containers:
-        - name: rabbitmq
-          image: masstransit/rabbitmq:latest
+        - name: search-controller
+          image: ronanavila/search-controller
           env:
-          # envFrom:
-          #   - configMapRef:
-          #       name: config-map-creation-controller          
-          #   - secretRef:
-          #       name: secret-ms-creation-controller
-          #       optional: true
+          envFrom:
+            - configMapRef:
+                name: config-map-search-controller          
+            - secretRef:
+                name: secret-ms-search-controller
+                optional: true
 
           # livenessProbe:
           #   httpGet:
@@ -53,19 +53,14 @@ kind: Service
 metadata:
   annotations:
   labels:
-    app: rabbitmq
-  name: rabbitmq-sv
+    app: search-controller
+  name: search-controller-sv
 spec:
   ports:
   - protocol: TCP
-    name: app
-    port: 5672 
-    targetPort: 5672
-  - protocol: TCP
-    name: web
-    port: 15672 
-    targetPort: 15672
-    nodePort: 31000
+    port: 8080
+    targetPort: 8080
+    nodePort: 31200
   selector:
-    app: rabbitmq
+    app: search-controller
   type: NodePort

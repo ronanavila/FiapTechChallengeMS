@@ -1,31 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: creation-controller
+  name: mssql
   labels:
-    app: creation-controller
+    app: mssql
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: creation-controller
+      app: mssql
   template:
     metadata:
-      name: creation-controller
+      name: mssql
       labels:
-        app: creation-controller
+        app: mssql
     spec:
       containers:
-        - name: creation-controller
-          image: ronanavila/creation-controller
+        - name: mssql
+          image: mcr.microsoft.com/mssql/server:2022-latest
+          ports:
+            - containerPort: 1433
           env:
           envFrom:
             - configMapRef:
-                name: config-map-creation-controller          
+                name: config-map-mssql          
             - secretRef:
-                name: secret-ms-creation-controller
+                name: secret-ms-mssql
                 optional: true
-
           # livenessProbe:
           #   httpGet:
           #     path: /api/1
@@ -53,14 +54,47 @@ kind: Service
 metadata:
   annotations:
   labels:
-    app: creation-controller
-  name: creation-controller-sv
+    app: mssql
+  name: mssql-sv
 spec:
   ports:
   - protocol: TCP
-    port: 8080
-    targetPort: 8080
-    nodePort: 31100
+    name: app
+    port: 1433 
+    targetPort: 1433
+    nodePort: 31433 
   selector:
-    app: creation-controller
+    app: mssql
   type: NodePort
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   annotations:
+#   labels:
+#     app: mssql
+#   name: mssql-sv
+# spec:
+#   ports:
+#   - protocol: TCP
+#     name: app
+#     port: 1433 
+#     targetPort: 1433
+#   selector:
+#     app: mssql
+#   type: ClusterIP
+
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata: 
+#   name: mssql-loadbalancer
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     app: mssql
+#   ports: 
+#    -  protocol: TCP
+#       port: 1433
+#       targetPort: 1433
+#       nodePort: 31433  

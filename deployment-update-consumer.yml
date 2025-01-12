@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rabbitmq
+  name: update-consumer
   labels:
-    app: rabbitmq
+    app: update-consumer
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rabbitmq
+      app: update-consumer
   template:
     metadata:
-      name: rabbitmq
+      name: update-consumer
       labels:
-        app: rabbitmq
+        app: update-consumer
     spec:
       containers:
-        - name: rabbitmq
-          image: masstransit/rabbitmq:latest
+        - name: update-consumer
+          image: ronanavila/update-consumer
           env:
-          # envFrom:
-          #   - configMapRef:
-          #       name: config-map-creation-controller          
-          #   - secretRef:
-          #       name: secret-ms-creation-controller
-          #       optional: true
+          envFrom:
+            - configMapRef:
+                name: config-map-update-consumer          
+            - secretRef:
+                name: secret-ms-update-consumer
+                optional: true
 
           # livenessProbe:
           #   httpGet:
@@ -47,25 +47,3 @@ spec:
           #     cpu: 2
           #     ephemeral-storage: 1Gi
           #     memory: 8Gi
----
-apiVersion: v1
-kind: Service
-metadata:
-  annotations:
-  labels:
-    app: rabbitmq
-  name: rabbitmq-sv
-spec:
-  ports:
-  - protocol: TCP
-    name: app
-    port: 5672 
-    targetPort: 5672
-  - protocol: TCP
-    name: web
-    port: 15672 
-    targetPort: 15672
-    nodePort: 31000
-  selector:
-    app: rabbitmq
-  type: NodePort

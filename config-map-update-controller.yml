@@ -1,11 +1,11 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: config-map-creation-controller
+  name: config-map-update-controller
 data:
     PORT: "8080"
     ASPNETCORE_ENVIRONMENT: Production
-    MassTransit__QueueName: Creation
+    MassTransit__QueueName: Update
     MassTransit__Server: rabbitmq-sv
     MassTransit__User: guest
     MassTransit__Password: guest

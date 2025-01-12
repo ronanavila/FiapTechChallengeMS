@@ -1,0 +1,64 @@
+# BUILD
+docker build --no-cache -t ronanavila/creation-controller . -f Dockerfile_creation_controller --label creation-controller
+docker build --no-cache -t ronanavila/creation-consumer . -f Dockerfile_creation_consumer --label creation-consumer
+docker build --no-cache -t ronanavila/update-controller . -f Dockerfile_update_controller --label update-controller
+docker build --no-cache -t ronanavila/update-consumer . -f Dockerfile_update_consumer --label update-consumer
+docker build --no-cache -t ronanavila/delete-controller . -f Dockerfile_delete_controller --label delete-controller
+docker build --no-cache -t ronanavila/delete-consumer . -f Dockerfile_delete_consumer --label delete-consumer
+docker build --no-cache -t ronanavila/search-controller . -f Dockerfile_search_controller --label search-controller
+
+# PUBLISH
+docker push ronanavila/creation-controller
+docker push ronanavila/creation-consumer
+docker push ronanavila/update-controller
+docker push ronanavila/update-consumer
+docker push ronanavila/delete-controller
+docker push ronanavila/delete-consumer
+docker push ronanavila/search-controller
+
+# DEPLOY
+
+kubectl apply -f deployment-rabbit-mq.yml
+kubectl apply -f deployment-mssql.yml
+
+kubectl apply -f config-map-creation-controller.yml
+kubectl apply -f config-map-update-controller.yml
+kubectl apply -f config-map-delete-controller.yml
+kubectl apply -f config-map-search-controller.yml
+kubectl apply -f config-map-creation-consumer.yml
+kubectl apply -f config-map-update-consumer.yml
+kubectl apply -f config-map-delete-consumer.yml
+
+kubectl apply -f deployment-creation-controller.yml
+kubectl apply -f deployment-update-controller.yml
+kubectl apply -f deployment-delete-controller.yml
+kubectl apply -f deployment-search-controller.yml
+kubectl apply -f deployment-creation-consumer.yml
+kubectl apply -f deployment-update-consumer.yml
+kubectl apply -f deployment-delete-consumer.yml
+
+# DELETE
+
+kubectl delete  deployment creation-controller
+kubectl delete  deployment update-controller
+kubectl delete  deployment delete-controller
+kubectl delete  deployment search-controller
+kubectl delete  deployment creation-consumer
+kubectl delete  deployment update-consumer
+kubectl delete  deployment delete-consumer
+
+kubectl delete  configmap config-map-creation-controller
+kubectl delete  configmap config-map-update-controller
+kubectl delete  configmap config-map-delete-controller
+kubectl delete  configmap config-map-search-controller
+kubectl delete  configmap config-map-creation-consumer
+kubectl delete  configmap config-map-update-consumer
+kubectl delete  configmap config-map-delete-consumer
+
+kubectl delete  services creation-controller-sv
+kubectl delete  services update-controller-sv
+kubectl delete  services delete-controller-sv
+kubectl delete  services search-controller-sv
+
+kubectl delete  services mssql-sv
+kubectl delete  services rabbitmq-sv

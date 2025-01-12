@@ -1,10 +1,10 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: config-map-creation-controller
+  name: config-map-creation-consumer
 data:
-    PORT: "8080"
     ASPNETCORE_ENVIRONMENT: Production
+    ConnectionStrings__DefaultConnection: "Server=mssql-sv,1433;Database=TechChallenge;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;"
     MassTransit__QueueName: Creation
     MassTransit__Server: rabbitmq-sv
     MassTransit__User: guest

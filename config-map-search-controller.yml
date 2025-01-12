@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: config-map-search-controller
+data:
+    PORT: "8080"
+    ConnectionStrings__DefaultConnection: "Server=mssql-sv,1433;Database=TechChallenge;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;"
+    ASPNETCORE_ENVIRONMENT: Production

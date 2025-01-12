@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: config-map-delete-consumer
+data:
+    ASPNETCORE_ENVIRONMENT: Production
+    ConnectionStrings__DefaultConnection: "Server=mssql-sv,1433;Database=TechChallenge;User ID=sa;Password=1q2w3e4r@#$;Trusted_Connection=False; TrustServerCertificate=True;"
+    MassTransit__QueueName: Delete
+    MassTransit__Server: rabbitmq-sv
+    MassTransit__User: guest
+    MassTransit__Password: guest
