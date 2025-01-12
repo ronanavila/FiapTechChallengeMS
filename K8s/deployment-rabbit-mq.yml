@@ -25,7 +25,14 @@ spec:
           #   - secretRef:
           #       name: secret-ms-creation-controller
           #       optional: true
-
+          volumeMounts:
+            - name: rmqdata
+              mountPath: /var/lib/rabbitmq
+            - name: config
+              mountPath: /etc/rabbitmq
+            - name: definitions
+              mountPath: /etc/definitions
+              readOnly: true
           # livenessProbe:
           #   httpGet:
           #     path: /api/1
@@ -47,6 +54,11 @@ spec:
           #     cpu: 2
           #     ephemeral-storage: 1Gi
           #     memory: 8Gi
+      volumes:
+        - name: rabbitmq-volume
+          hostPath:
+          persistentVolumeClaim:
+            claimName: rabbitmq-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -69,3 +81,16 @@ spec:
   selector:
     app: rabbitmq
   type: NodePort
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rabbitmq-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+  storageClassName: hostpath

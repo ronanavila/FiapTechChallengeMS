@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-map-prometheus
+  labels:
+    name: config-map-prometheus
+data:
+  prometheus.yml: |-
+    global:
+      scrape_interval: 10s
+      scrape_timeout: 10s
+    scrape_configs:
+      - job_name: contact-creation
+        metrics_path: /metrics
+        static_configs:
+          - targets:
+              - creation-controller-sv:8080
+      - job_name: contact-update
+        metrics_path: /metrics
+        static_configs:
+          - targets:
+            - update-controller-sv:8080
+      - job_name: contact-search
+        metrics_path: /metrics
+        static_configs:
+          - targets:
+            - search-controller-sv:8080
+      - job_name: contact-delete
+        metrics_path: /metrics
+        static_configs:
+          - targets:
+            -  delete-controller-sv:8080
+      - job_name: prometheus
+        metrics_path: /metrics
+        static_configs:
+          - targets:
+              - 0.0.0.0:9090
+      - job_name: docker
+        metrics_path: /metrics
+        static_configs:
+          - targets:
+              - host.docker.internal:9323

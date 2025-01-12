@@ -27,6 +27,14 @@ spec:
             - secretRef:
                 name: secret-ms-mssql
                 optional: true
+          volumeMounts:
+            - name: mssql-volume
+              mountPath: "/var/opt/mssql"
+      volumes:
+        - name: mssql-volume
+          hostPath:
+          persistentVolumeClaim:
+            claimName: mssql-pvc
           # livenessProbe:
           #   httpGet:
           #     path: /api/1
@@ -48,6 +56,7 @@ spec:
           #     cpu: 2
           #     ephemeral-storage: 1Gi
           #     memory: 8Gi
+
 ---
 apiVersion: v1
 kind: Service
@@ -66,35 +75,16 @@ spec:
   selector:
     app: mssql
   type: NodePort
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   annotations:
-#   labels:
-#     app: mssql
-#   name: mssql-sv
-# spec:
-#   ports:
-#   - protocol: TCP
-#     name: app
-#     port: 1433 
-#     targetPort: 1433
-#   selector:
-#     app: mssql
-#   type: ClusterIP
 
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata: 
-#   name: mssql-loadbalancer
-# spec:
-#   type: LoadBalancer
-#   selector:
-#     app: mssql
-#   ports: 
-#    -  protocol: TCP
-#       port: 1433
-#       targetPort: 1433
-#       nodePort: 31433  
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mssql-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+  storageClassName: hostpath

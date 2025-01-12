@@ -25,7 +25,26 @@ spec:
             - secretRef:
                 name: secret-ms-grafana
                 optional: true
-
+          volumeMounts:
+            - name: grafana-dashboard
+              mountPath: "/var/lib/grafana/dashboards"
+            - name: grafana-datasource-folder
+              mountPath: "/etc/grafana/provisioning/datasources"
+            - name: grafana-dashboard-folder
+              mountPath: "/etc/grafana/provisioning/dashboards"                            
+      volumes:
+        - name: grafana-dashboard
+          hostPath:
+          persistentVolumeClaim:
+            claimName: grafana-pvc
+        - name: grafana-datasource-folder
+          hostPath:
+          persistentVolumeClaim:
+            claimName: grafana-pvc
+        - name: grafana-dashboard-folder
+          hostPath:
+          persistentVolumeClaim:
+            claimName: grafana-pvc                        
           # livenessProbe:
           #   httpGet:
           #     path: /api/1
@@ -47,6 +66,7 @@ spec:
           #     cpu: 2
           #     ephemeral-storage: 1Gi
           #     memory: 8Gi
+
 ---
 apiVersion: v1
 kind: Service
@@ -64,3 +84,16 @@ spec:
   selector:
     app: grafana
   type: NodePort
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grafana-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+  storageClassName: hostpath

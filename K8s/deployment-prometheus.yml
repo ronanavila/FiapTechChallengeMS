@@ -21,12 +21,19 @@ spec:
           env:
           envFrom:
             - configMapRef:
-                name: config-map-prometheus     
-                optional: true     
+                name: config-map-prometheus
             - secretRef:
                 name: secret-ms-prometheus
                 optional: true
-
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/prometheus/prometheus.yml
+              subPath: prometheus.yml
+      volumes:
+      - name: config-volume
+        configMap:
+          name: config-map-prometheus               
+           
           # livenessProbe:
           #   httpGet:
           #     path: /api/1
@@ -48,6 +55,7 @@ spec:
           #     cpu: 2
           #     ephemeral-storage: 1Gi
           #     memory: 8Gi
+
 ---
 apiVersion: v1
 kind: Service
