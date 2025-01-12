@@ -45,6 +45,11 @@ kubectl apply -f deployment-delete-consumer.yml
 
 # DELETE
 
+kubectl delete deployment rabbitmq
+kubectl delete deployment mssql
+kubectl delete deployment prometheus
+kubectl delete deployment grafana
+
 kubectl delete  deployment creation-controller
 kubectl delete  deployment update-controller
 kubectl delete  deployment delete-controller
@@ -61,19 +66,21 @@ kubectl delete  configmap config-map-creation-consumer
 kubectl delete  configmap config-map-update-consumer
 kubectl delete  configmap config-map-delete-consumer
 
-kubectl delete  services creation-controller-sv
-kubectl delete  services update-controller-sv
-kubectl delete  services delete-controller-sv
-kubectl delete  services search-controller-sv
-
 kubectl delete  services mssql-sv
 kubectl delete  services rabbitmq-sv
 kubectl delete  services grafana-sv
 
 
+kubectl delete  services creation-controller-sv
+kubectl delete  services update-controller-sv
+kubectl delete  services delete-controller-sv
+kubectl delete  services search-controller-sv
+
+
+
 
 kubectl cp .\prometheus.yaml prometheus-6c49bf6bdb-qxwrm:/etc/prometheus/prometheus.yml
 
-      kubectl cp ./grafana/dashboards grafana-8cd48dcfc-qrq4g:/var/lib/grafana/dashboards
-      kubectl cp ./grafana/provisioning/datasources/default.yaml grafana-8cd48dcfc-qrq4g:/etc/grafana/provisioning/datasources/default.yaml
-      kubectl cp ./grafana/provisioning/dashboards/default.yaml grafana-8cd48dcfc-qrq4g:/etc/grafana/provisioning/dashboards/default.yaml
+kubectl cp ./grafana/dashboards grafana-8cd48dcfc-qrq4g:/var/lib/grafana/dashboards
+kubectl cp ./grafana/provisioning/datasources/default.yaml grafana-8cd48dcfc-qrq4g:/etc/grafana/provisioning/datasources/default.yaml
+kubectl cp ./grafana/provisioning/dashboards/default.yaml grafana-8cd48dcfc-qrq4g:/etc/grafana/provisioning/dashboards/default.yaml
