@@ -9,6 +9,6 @@ datasources:
 - name: Prometheus
   type: prometheus
   uid: ${DS_PROMETHEUS}
-  url: http://host.docker.internal:9090
+  url: http://prometheus-sv:9090
   orgId: 1
   editable: false

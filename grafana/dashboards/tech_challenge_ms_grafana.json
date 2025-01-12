@@ -156,7 +156,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.50,  sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.50,  sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
           "legendFormat": "p50",
           "range": true,
           "refId": "p50"
@@ -167,7 +167,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p75",
           "range": true,
@@ -179,7 +179,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p90",
           "range": true,
@@ -191,7 +191,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p95",
           "range": true,
@@ -203,7 +203,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p98",
           "range": true,
@@ -215,7 +215,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99",
           "range": true,
@@ -227,7 +227,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99.9",
           "range": true,
@@ -385,7 +385,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m]))",
           "legendFormat": "All",
           "range": true,
           "refId": "All"
@@ -396,7 +396,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\", instance=\"host.docker-internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m]))",
           "hide": false,
           "legendFormat": "4XX",
           "range": true,
@@ -408,7 +408,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\", instance=\"hots.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[5m]))",
           "hide": false,
           "legendFormat": "5XX",
           "range": true,
@@ -550,7 +550,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[$__rate_interval])\r\n  )",
+          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[$__rate_interval])\r\n  )",
           "legendFormat": "{{scheme}}",
           "range": true,
           "refId": "A"
@@ -621,7 +621,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (method_route) (\r\n    label_replace(max_over_time(http_server_request_duration_seconds_count{job=\"contact-creation\", instance=\"host.docker.internal:8090\", http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[$__rate_interval]), \"method_route\", \"http/$1\", \"network_protocol_version\", \"(.*)\")\r\n  )",
+          "expr": "sum by (method_route) (\r\n    label_replace(max_over_time(http_server_request_duration_seconds_count{job=\"contact-creation\",  http_route=\"api/contacts/creation\", http_request_method=\"POST\"}[$__rate_interval]), \"method_route\", \"http/$1\", \"network_protocol_version\", \"(.*)\")\r\n  )",
           "legendFormat": "{{protocol}}",
           "range": true,
           "refId": "A"
@@ -757,7 +757,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.50,  sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.50,  sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
           "legendFormat": "p50",
           "range": true,
           "refId": "p50"
@@ -768,7 +768,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p75",
           "range": true,
@@ -780,7 +780,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p90",
           "range": true,
@@ -792,7 +792,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p95",
           "range": true,
@@ -804,7 +804,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p98",
           "range": true,
@@ -816,7 +816,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99",
           "range": true,
@@ -828,7 +828,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99.9",
           "range": true,
@@ -986,7 +986,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m]))",
           "legendFormat": "All",
           "range": true,
           "refId": "All"
@@ -997,7 +997,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker-internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\",  http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m]))",
           "hide": false,
           "legendFormat": "4XX",
           "range": true,
@@ -1009,7 +1009,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"hots.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\",  http_route=\"api/contacts/search\", http_request_method=\"GET\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[5m]))",
           "hide": false,
           "legendFormat": "5XX",
           "range": true,
@@ -1151,7 +1151,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[$__rate_interval])\r\n  )",
+          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[$__rate_interval])\r\n  )",
           "legendFormat": "{{scheme}}",
           "range": true,
           "refId": "A"
@@ -1222,7 +1222,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (method_route) (\r\n    label_replace(max_over_time(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[$__rate_interval]), \"method_route\", \"http/$1\", \"network_protocol_version\", \"(.*)\")\r\n  )",
+          "expr": "sum by (method_route) (\r\n    label_replace(max_over_time(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search\", http_request_method=\"GET\"}[$__rate_interval]), \"method_route\", \"http/$1\", \"network_protocol_version\", \"(.*)\")\r\n  )",
           "legendFormat": "{{protocol}}",
           "range": true,
           "refId": "A"
@@ -1358,7 +1358,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.50,  sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.50,  sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
           "legendFormat": "p50",
           "range": true,
           "refId": "p50"
@@ -1369,7 +1369,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p75",
           "range": true,
@@ -1381,7 +1381,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p90",
           "range": true,
@@ -1393,7 +1393,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p95",
           "range": true,
@@ -1405,7 +1405,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p98",
           "range": true,
@@ -1417,7 +1417,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99",
           "range": true,
@@ -1429,7 +1429,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99.9",
           "range": true,
@@ -1587,7 +1587,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m]))",
           "legendFormat": "All",
           "range": true,
           "refId": "All"
@@ -1598,7 +1598,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-seach\", instance=\"host.docker-internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-seach\",  http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m]))",
           "hide": false,
           "legendFormat": "4XX",
           "range": true,
@@ -1610,7 +1610,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"hots.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\",  http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[5m]))",
           "hide": false,
           "legendFormat": "5XX",
           "range": true,
@@ -1752,7 +1752,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[$__rate_interval])\r\n  )",
+          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[$__rate_interval])\r\n  )",
           "legendFormat": "{{scheme}}",
           "range": true,
           "refId": "A"
@@ -1823,7 +1823,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (method_route) (\r\n    label_replace(max_over_time(http_server_request_duration_seconds_count{job=\"contact-search\", instance=\"host.docker.internal:8092\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[$__rate_interval]), \"method_route\", \"http/$1\", \"network_protocol_version\", \"(.*)\")\r\n  )",
+          "expr": "sum by (method_route) (\r\n    label_replace(max_over_time(http_server_request_duration_seconds_count{job=\"contact-search\", http_route=\"api/contacts/search/{ddd:int}\", http_request_method=\"GET\"}[$__rate_interval]), \"method_route\", \"http/$1\", \"network_protocol_version\", \"(.*)\")\r\n  )",
           "legendFormat": "{{protocol}}",
           "range": true,
           "refId": "A"
@@ -1959,7 +1959,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.50,  sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/api/update\", http_request_method=\"PUT\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.50,  sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
           "legendFormat": "p50",
           "range": true,
           "refId": "p50"
@@ -1970,7 +1970,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p75",
           "range": true,
@@ -1982,7 +1982,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p90",
           "range": true,
@@ -1994,7 +1994,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p95",
           "range": true,
@@ -2006,7 +2006,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p98",
           "range": true,
@@ -2018,7 +2018,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99",
           "range": true,
@@ -2030,7 +2030,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99.9",
           "range": true,
@@ -2188,7 +2188,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m]))",
           "legendFormat": "All",
           "range": true,
           "refId": "All"
@@ -2199,7 +2199,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\", instance=\"host.docker-internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m]))",
           "hide": false,
           "legendFormat": "4XX",
           "range": true,
@@ -2211,7 +2211,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\", instance=\"hots.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[5m]))",
           "hide": false,
           "legendFormat": "5XX",
           "range": true,
@@ -2282,7 +2282,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (http_response_status_code) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-update\", instance=\"host.docker.internal:8091\",http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[$__rate_interval])\r\n  )",
+          "expr": "sum by (http_response_status_code) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-update\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[$__rate_interval])\r\n  )",
           "legendFormat": "Status {{http_response_status_code}}",
           "range": true,
           "refId": "A"
@@ -2353,7 +2353,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[$__rate_interval])\r\n  )",
+          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[$__rate_interval])\r\n  )",
           "legendFormat": "{{scheme}}",
           "range": true,
           "refId": "A"
@@ -2424,7 +2424,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (method_route) (\r\n    label_replace(max_over_time(http_server_request_duration_seconds_count{job=\"contact-update\", instance=\"host.docker.internal:8091\", http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[$__rate_interval]), \"method_route\", \"http/$1\", \"network_protocol_version\", \"(.*)\")\r\n  )",
+          "expr": "sum by (method_route) (\r\n    label_replace(max_over_time(http_server_request_duration_seconds_count{job=\"contact-update\",  http_route=\"api/contacts/update\", http_request_method=\"PUT\"}[$__rate_interval]), \"method_route\", \"http/$1\", \"network_protocol_version\", \"(.*)\")\r\n  )",
           "legendFormat": "{{protocol}}",
           "range": true,
           "refId": "A"
@@ -2560,7 +2560,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.50,  sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.50,  sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
           "legendFormat": "p50",
           "range": true,
           "refId": "p50"
@@ -2571,7 +2571,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.75, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p75",
           "range": true,
@@ -2583,7 +2583,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.90, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p90",
           "range": true,
@@ -2595,7 +2595,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p95",
           "range": true,
@@ -2607,7 +2607,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.98, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p98",
           "range": true,
@@ -2619,7 +2619,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.99, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99",
           "range": true,
@@ -2631,7 +2631,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
+          "expr": "histogram_quantile(0.999, sum(rate(http_server_request_duration_seconds_bucket{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m])) by (le))",
           "hide": false,
           "legendFormat": "p99.9",
           "range": true,
@@ -2789,7 +2789,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\", http_response_status_code=~\"4..|5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m]))",
           "legendFormat": "All",
           "range": true,
           "refId": "All"
@@ -2800,7 +2800,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\", instance=\"host.docker-internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\", http_response_status_code=~\"4..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m]))",
           "hide": false,
           "legendFormat": "4XX",
           "range": true,
@@ -2812,7 +2812,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\", instance=\"hots.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m]))",
+          "expr": "sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\", http_response_status_code=~\"5..\"}[5m]) or vector(0)) / sum(rate(http_server_request_duration_seconds_count{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[5m]))",
           "hide": false,
           "legendFormat": "5XX",
           "range": true,
@@ -2883,7 +2883,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (http_response_status_code) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-delete\", instance=\"host.docker.internal:8093\",http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[$__rate_interval])\r\n  )",
+          "expr": "sum by (http_response_status_code) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-delete\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[$__rate_interval])\r\n  )",
           "legendFormat": "Status {{http_response_status_code}}",
           "range": true,
           "refId": "A"
@@ -2954,7 +2954,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[$__rate_interval])\r\n  )",
+          "expr": "sum by (url_scheme) (\r\n    max_over_time(http_server_request_duration_seconds_count{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[$__rate_interval])\r\n  )",
           "legendFormat": "{{scheme}}",
           "range": true,
           "refId": "A"
@@ -3025,7 +3025,7 @@
             "uid": "c226b139-d9c1-429c-9984-559dd1c95216"
           },
           "editorMode": "code",
-          "expr": "sum by (method_route) (\r\n    label_replace(max_over_time(http_server_request_duration_seconds_count{job=\"contact-delete\", instance=\"host.docker.internal:8093\", http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[$__rate_interval]), \"method_route\", \"http/$1\", \"network_protocol_version\", \"(.*)\")\r\n  )",
+          "expr": "sum by (method_route) (\r\n    label_replace(max_over_time(http_server_request_duration_seconds_count{job=\"contact-delete\",  http_route=\"api/contacts/delete/{guid:Guid}\", http_request_method=\"DELETE\"}[$__rate_interval]), \"method_route\", \"http/$1\", \"network_protocol_version\", \"(.*)\")\r\n  )",
           "legendFormat": "{{protocol}}",
           "range": true,
           "refId": "A"

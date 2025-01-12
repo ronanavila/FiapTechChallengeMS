@@ -18,8 +18,8 @@ docker push ronanavila/search-controller
 
 # DEPLOY
 
-kubectl apply -f deployment-rabbit-mq.yml
-kubectl apply -f deployment-mssql.yml
+kubectl apply -f config-map-mssql.yml
+kubectl apply -f config-map-grafana.yml
 
 kubectl apply -f config-map-creation-controller.yml
 kubectl apply -f config-map-update-controller.yml
@@ -28,6 +28,12 @@ kubectl apply -f config-map-search-controller.yml
 kubectl apply -f config-map-creation-consumer.yml
 kubectl apply -f config-map-update-consumer.yml
 kubectl apply -f config-map-delete-consumer.yml
+
+
+kubectl apply -f deployment-rabbit-mq.yml
+kubectl apply -f deployment-mssql.yml
+kubectl apply -f deployment-prometheus.yml
+kubectl apply -f deployment-grafana.yml
 
 kubectl apply -f deployment-creation-controller.yml
 kubectl apply -f deployment-update-controller.yml
@@ -62,3 +68,12 @@ kubectl delete  services search-controller-sv
 
 kubectl delete  services mssql-sv
 kubectl delete  services rabbitmq-sv
+kubectl delete  services grafana-sv
+
+
+
+kubectl cp .\prometheus.yaml prometheus-6c49bf6bdb-qxwrm:/etc/prometheus/prometheus.yml
+
+      kubectl cp ./grafana/dashboards grafana-8cd48dcfc-qrq4g:/var/lib/grafana/dashboards
+      kubectl cp ./grafana/provisioning/datasources/default.yaml grafana-8cd48dcfc-qrq4g:/etc/grafana/provisioning/datasources/default.yaml
+      kubectl cp ./grafana/provisioning/dashboards/default.yaml grafana-8cd48dcfc-qrq4g:/etc/grafana/provisioning/dashboards/default.yaml

@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+  labels:
+    app: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      name: prometheus
+      labels:
+        app: prometheus
+    spec:
+      containers:
+        - name: prometheus
+          image: prom/prometheus:v2.54.1
+          env:
+          envFrom:
+            - configMapRef:
+                name: config-map-prometheus     
+                optional: true     
+            - secretRef:
+                name: secret-ms-prometheus
+                optional: true
+
+          # livenessProbe:
+          #   httpGet:
+          #     path: /api/1
+          #     port: 80
+          #   initialDelaySeconds: 180
+          #   periodSeconds: 60
+          # readnessProbe:
+          #   httpGet:
+          #     path: /api/1
+          #     port: 80
+          # ports:
+          #   - containerPort: 80
+          # resources:
+          #   limits:
+          #     cpu: 2
+          #     ephemeral-storage: 1Gi
+          #     memory: 8Gi
+          #   requests:
+          #     cpu: 2
+          #     ephemeral-storage: 1Gi
+          #     memory: 8Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  labels:
+    app: prometheus
+  name: prometheus-sv
+spec:
+  ports:
+  - protocol: TCP
+    port: 9090
+    targetPort: 9090
+    nodePort: 32100
+  selector:
+    app: prometheus
+  type: NodePort

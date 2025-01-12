@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: config-map-grafana
+data:
+    PORT: "3000"
+    GF_SECURITY_ADMIN_USER: batman
+    GF_SECURITY_ADMIN_PASSWORD: batman
+    DS_PROMETHEUS: c226b139-d9c1-429c-9984-559dd1c95216

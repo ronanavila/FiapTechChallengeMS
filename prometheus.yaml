@@ -1,5 +1,5 @@
 global:
-  scrape_interval: 15s
+  scrape_interval: 10s
   scrape_timeout: 10s
 
 scrape_configs:
@@ -7,26 +7,26 @@ scrape_configs:
     metrics_path: /metrics
     static_configs:
       - targets:
-          - host.docker.internal:8090
+          - creation-controller-sv:8080
 
   - job_name: contact-update
     metrics_path: /metrics
     static_configs:
       - targets:
-        - host.docker.internal:8091
+        - update-controller-sv:8080
 
 
   - job_name: contact-search
     metrics_path: /metrics
     static_configs:
       - targets:
-        - host.docker.internal:8092
+        - search-controller-sv:8080
 
   - job_name: contact-delete
     metrics_path: /metrics
     static_configs:
       - targets:
-        - host.docker.internal:8093
+        -  delete-controller-sv:8080
 
   - job_name: prometheus
     metrics_path: /metrics
