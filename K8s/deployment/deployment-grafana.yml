@@ -28,23 +28,21 @@ spec:
           volumeMounts:
             - name: grafana-dashboard
               mountPath: "/var/lib/grafana/dashboards"
-            - name: grafana-datasource-folder
+            - name: grafana-datasource
               mountPath: "/etc/grafana/provisioning/datasources"
-            - name: grafana-dashboard-folder
+            - name: dashboard
               mountPath: "/etc/grafana/provisioning/dashboards"                            
       volumes:
         - name: grafana-dashboard
-          hostPath:
-          persistentVolumeClaim:
-            claimName: grafana-pvc
-        - name: grafana-datasource-folder
-          hostPath:
-          persistentVolumeClaim:
-            claimName: grafana-pvc
-        - name: grafana-dashboard-folder
-          hostPath:
-          persistentVolumeClaim:
-            claimName: grafana-pvc                        
+          configMap:
+            name: config-map-dashboard
+        - name: grafana-datasource
+          configMap:
+            name: config-map-grafana-datasource
+        - name: dashboard
+          configMap:
+            name: config-map-grafana-dashboard
+                      
           # livenessProbe:
           #   httpGet:
           #     path: /api/1

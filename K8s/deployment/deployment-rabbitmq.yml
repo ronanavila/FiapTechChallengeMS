@@ -28,11 +28,24 @@ spec:
           volumeMounts:
             - name: rmqdata
               mountPath: /var/lib/rabbitmq
-            - name: config
-              mountPath: /etc/rabbitmq
-            - name: definitions
-              mountPath: /etc/definitions
-              readOnly: true
+            # - name: config
+            #   mountPath: /etc/rabbitmq
+            # - name: definitions
+            #   mountPath: /etc/definitions
+            #   readOnly: true
+      volumes:
+        - name: rmqdata
+          hostPath:
+          persistentVolumeClaim:
+            claimName: rabbitmq-rmqdata-pvc
+        # - name: config
+        #   hostPath:
+        #   persistentVolumeClaim:
+        #     claimName: rabbitmq-config-pvc
+        # - name: definitions
+        #   hostPath:
+        #   persistentVolumeClaim:
+        #     claimName: rabbitmq-definitions-pvc                        
           # livenessProbe:
           #   httpGet:
           #     path: /api/1
@@ -54,11 +67,6 @@ spec:
           #     cpu: 2
           #     ephemeral-storage: 1Gi
           #     memory: 8Gi
-      volumes:
-        - name: rabbitmq-volume
-          hostPath:
-          persistentVolumeClaim:
-            claimName: rabbitmq-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -86,7 +94,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: rabbitmq-pvc
+  name: rabbitmq-rmqdata-pvc
 spec:
   accessModes:
     - ReadWriteOnce
@@ -94,3 +102,29 @@ spec:
     requests:
       storage: 500Mi
   storageClassName: hostpath
+
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: rabbitmq-config-pvc
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 500Mi
+#   storageClassName: hostpath
+
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: rabbitmq-definitions-pvc
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 500Mi
+#   storageClassName: hostpath
