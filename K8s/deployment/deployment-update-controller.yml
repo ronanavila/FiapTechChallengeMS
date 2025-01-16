@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: update-controller
   labels:
-    app: update-controller
+    app: update
 spec:
   replicas: 1
   selector:
@@ -68,6 +68,8 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-update-controller
+  labels:
+    app: update  
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

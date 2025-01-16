@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: delete-controller
   labels:
-    app: delete-controller
+    app: delete
 spec:
   replicas: 1
   selector:
@@ -68,6 +68,8 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-delete-controller
+  labels:
+    app: delete  
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

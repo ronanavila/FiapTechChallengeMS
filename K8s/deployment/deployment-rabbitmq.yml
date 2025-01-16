@@ -28,6 +28,7 @@ spec:
           volumeMounts:
             - name: rmqdata
               mountPath: /var/lib/rabbitmq
+              # mountPath: /opt/bitnami/rabbitmq/var/lib/rabbitmq
             # - name: config
             #   mountPath: /etc/rabbitmq
             # - name: definitions
@@ -100,7 +101,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 500Mi
+      storage: 8Gi
   storageClassName: hostpath
 
 # ---

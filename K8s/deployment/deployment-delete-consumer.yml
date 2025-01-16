@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: delete-consumer
   labels:
-    app: delete-consumer
+    app: delete
 spec:
   replicas: 1
   selector:
@@ -51,6 +51,8 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-delete-consumer
+  labels:
+    app: delete  
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

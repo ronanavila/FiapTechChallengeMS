@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: creation-controller
   labels:
-    app: creation-controller
+    app: creation
 spec:
   replicas: 1
   selector:
@@ -68,6 +68,8 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: hpa-creation-controller
+  labels:
+    app: creation  
 spec:
   scaleTargetRef:
     apiVersion: apps/v1

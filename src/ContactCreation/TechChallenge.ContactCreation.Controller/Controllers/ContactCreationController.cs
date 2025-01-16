@@ -36,11 +36,15 @@ public class ContactCreationController : ControllerBase
     var result = await _contactService.CreateContactValidation(request);
     if (result.Success)
     {
+      try {
       ISendEndpoint? endpoint = await _bus.GetSendEndpoint(new Uri($"queue:{Configuration.QueueName}"));
 
       await endpoint.Send(result.Data);
 
       return StatusCode((int)result.StatusCode, result);
+      }catch{
+        return StatusCode(500, "Erro ao enviar para RabbitMQ");
+      }
     }
    
     return StatusCode((int)result.StatusCode, result);
