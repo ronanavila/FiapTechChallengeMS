@@ -30,7 +30,7 @@ kubectl apply -f config-map-update-consumer.yml
 kubectl apply -f config-map-delete-consumer.yml
 
 
-kubectl apply -f deployment-rabbit-mq.yml
+kubectl apply -f deployment-rabbitmq.yml
 kubectl apply -f deployment-mssql.yml
 kubectl apply -f deployment-prometheus.yml
 kubectl apply -f deployment-grafana.yml
